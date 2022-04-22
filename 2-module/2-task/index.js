@@ -1,3 +1,4 @@
 function isEmpty(obj) {
-  // ваш код...
+  let keys = Object.keys(obj);
+  return keys.length === 0;
 }
