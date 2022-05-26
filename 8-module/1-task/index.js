@@ -2,7 +2,6 @@ import createElement from '../../assets/lib/create-element.js';
 
 export default class CartIcon {
   constructor() {
-    this.initialHight = 0;
     this.render();
 
     this.addEventListeners();
@@ -23,7 +22,6 @@ export default class CartIcon {
         </div>`;
 
       this.updatePosition();
-      this.initialHight = this.elem.getBoundingClientRect().top;
 
       this.elem.classList.add('shake');
       this.elem.addEventListener('transitionend', () => {
@@ -41,6 +39,7 @@ export default class CartIcon {
   }
 
   updatePosition() {
+    this.initialHight = this.elem.getBoundingClientRect().top;
     const xPosition = Math.min(
       document.querySelector('.container').getBoundingClientRect().right + 20,
       document.documentElement.clientWidth - this.elem.offsetWidth - 10

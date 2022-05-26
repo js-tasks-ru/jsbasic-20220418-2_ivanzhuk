@@ -6,10 +6,6 @@ export default class ProductGrid {
     this.products = products;
     this.filters = {};
     this.element = null;
-    this.noNuts = false;
-    this.vegeterianOnly = false;
-    this.maxSpiciness = 4;
-    this.category = '';
     this.createMarkup();
   }
 
@@ -32,23 +28,22 @@ export default class ProductGrid {
   }
 
   updateFilter(filters) {
-    const filter = `${Object.keys(filters)}`;
-    this[filter] = filters[filter];
+    this.filters = Object.assign(this.filters, filters);
     const container = this.element.querySelector('.products-grid__inner');
     container.innerHTML = '';
     this.products.forEach((product) => {
       let add = true;
 
-      if (product.nuts && this.noNuts) {
+      if (product.nuts && this.filters.noNuts) {
         add = false;
       }
-      if (!product.vegeterian && this.vegeterianOnly) {
+      if (!product.vegeterian && this.filters.vegeterianOnly) {
         add = false;
       }
-      if (product.spiciness > this.maxSpiciness) {
+      if (product.spiciness > this.filters.maxSpiciness) {
         add = false;
       }
-      if (this.category && this.category !== product.category) {
+      if (this.filters.category && this.filters.category !== product.category) {
         add = false;
       }
 

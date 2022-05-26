@@ -14,7 +14,7 @@ export default class Cart {
 
       let cart = this.cartItems.find((cart) => cart.product.id === product.id);
       if (cart) {
-        this.cartItems.map((item) => {
+        this.cartItems.forEach((item) => {
           if (item.product.id === cart.product.id) {
             item.count += 1;
             productItem = item;
@@ -35,7 +35,7 @@ export default class Cart {
   }
 
   updateProductCount(productId, amount) {
-    this.cartItems.map((productItem => {
+    this.cartItems.forEach((productItem => {
       if (productItem.product.id === productId) {
         productItem.count += amount;
         this.cartItem = productItem;
