@@ -40,11 +40,11 @@ export default class CartIcon {
 
   updatePosition() {
     this.initialHight = this.elem.getBoundingClientRect().top;
-    const xPosition = Math.min(
-      document.querySelector('.container').getBoundingClientRect().right + 20,
-      document.documentElement.clientWidth - this.elem.offsetWidth - 10
-    )
     if (window.pageYOffset > this.initialHight && document.documentElement.clientWidth >= 767) {
+      const xPosition = Math.min(
+        document.querySelector('.container').getBoundingClientRect().right + 20,
+        document.documentElement.clientWidth - this.elem.offsetWidth - 10
+      )
       this.elem.style.position = 'fixed';
       this.elem.style.top = '50px';
       this.elem.style.left = `${xPosition}px`;
