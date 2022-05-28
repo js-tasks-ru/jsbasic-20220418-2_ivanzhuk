@@ -48,10 +48,12 @@ export default class CartIcon {
       this.elem.style.position = 'fixed';
       this.elem.style.top = '50px';
       this.elem.style.left = `${xPosition}px`;
+      this.elem.style.zIndex = '3';
     } else {
       this.elem.style.position = 'absolute';
       this.elem.style.top = '';
       this.elem.style.left = '';
+      this.elem.style.zIndex = '';
     }
   }
 }
