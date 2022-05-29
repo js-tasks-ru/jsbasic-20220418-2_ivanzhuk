@@ -1,7 +1,7 @@
 import createElement from '../../assets/lib/create-element.js';
 
 export default class StepSlider {
-  constructor({ steps, value = 0 }) {
+  constructor({ steps, value = 0}) {
     this.value = value;
     this.steps = steps;
     this._element = null;
@@ -23,7 +23,7 @@ export default class StepSlider {
     <div class="slider">
 
     <div class="slider__thumb">
-      <span class="slider__value">0</span>
+      <span class="slider__value">${this.value}</span>
     </div>
 
     <div class="slider__progress"></div>
